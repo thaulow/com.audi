@@ -1,0 +1,36 @@
+{
+  "type": "number",
+  "title": {
+    "en": "State of charge"
+  },
+  "units": {
+    "en": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "/assets/capabilities/battery.svg",
+  "uiComponent": "battery",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_soc_changed",
+        "title": {
+          "en": "State of charge changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_soc",
+            "type": "number",
+            "title": {
+              "en": "State of charge"
+            },
+            "example": 80
+          }
+        ]
+      }
+    ]
+  }
+}

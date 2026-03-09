@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Start auxiliary heater"
+  },
+  "hint": {
+    "en": "Start the auxiliary heater (requires S-PIN)"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Refresh vehicle data"
+  },
+  "hint": {
+    "en": "Ask the vehicle to push fresh data to the cloud. Data will be available after ~30 seconds."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

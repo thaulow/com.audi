@@ -1,0 +1,34 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Mileage"
+  },
+  "units": {
+    "en": "km"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "/assets/capabilities/mileage.svg",
+  "uiComponent": "sensor",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_mileage_changed",
+        "title": {
+          "en": "Mileage changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_mileage",
+            "type": "number",
+            "title": {
+              "en": "Mileage"
+            },
+            "example": 45230
+          }
+        ]
+      }
+    ]
+  }
+}

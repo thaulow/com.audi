@@ -1,0 +1,38 @@
+{
+  "id": "com.audi",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Audi Connect"
+  },
+  "description": {
+    "en": "Control and monitor your Audi vehicle from Homey"
+  },
+  "brandColor": "#000000",
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Thomas Thaulow Stöcklin",
+    "email": "thaulow@thaulow.co"
+  },
+  "tags": {
+    "en": ["audi", "car", "vehicle", "ev", "e-tron", "charging", "climate", "lock"]
+  },
+  "api": {
+    "refreshVehicle": {
+      "method": "PUT",
+      "path": "/vehicle/:vin/refresh"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Charging state"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "values": [
+    {
+      "id": "notCharging",
+      "title": { "en": "Not charging" }
+    },
+    {
+      "id": "charging",
+      "title": { "en": "Charging" }
+    },
+    {
+      "id": "chargePurposeReachedAndNotConservationCharging",
+      "title": { "en": "Charge complete" }
+    },
+    {
+      "id": "conserving",
+      "title": { "en": "Conserving" }
+    }
+  ]
+}

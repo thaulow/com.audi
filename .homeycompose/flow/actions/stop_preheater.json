@@ -1,0 +1,12 @@
+{
+  "title": {
+    "en": "Stop auxiliary heater"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Range"
+  },
+  "units": {
+    "en": "km"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "/assets/capabilities/range.svg",
+  "uiComponent": "sensor",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_range_changed",
+        "title": {
+          "en": "Range changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_range",
+            "type": "number",
+            "title": {
+              "en": "Range"
+            },
+            "example": 420
+          }
+        ]
+      }
+    ]
+  }
+}

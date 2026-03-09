@@ -1,0 +1,36 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Fuel level"
+  },
+  "units": {
+    "en": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "/assets/capabilities/fuel.svg",
+  "uiComponent": "sensor",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_fuel_level_changed",
+        "title": {
+          "en": "Fuel level changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_fuel_level",
+            "type": "number",
+            "title": {
+              "en": "Fuel level"
+            },
+            "example": 75
+          }
+        ]
+      }
+    ]
+  }
+}

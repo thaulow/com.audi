@@ -1,0 +1,13 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Service in"
+  },
+  "units": {
+    "en": "days"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "uiComponent": "sensor"
+}

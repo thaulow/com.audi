@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Car body -->
+  <path d="M3 12h18v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5z"/>
+  <path d="M5 12l2-5h10l2 5"/>
+  <!-- Wheels -->
+  <circle cx="7" cy="17" r="1.5"/>
+  <circle cx="17" cy="17" r="1.5"/>
+  <!-- Windows -->
+  <path d="M8 8h3v4H7z"/>
+  <path d="M13 8h3l1 4h-4z"/>
+  <!-- Audi rings (simplified) -->
+  <circle cx="8.5" cy="4" r="1.5" fill="none"/>
+  <circle cx="11" cy="4" r="1.5" fill="none"/>
+  <circle cx="13.5" cy="4" r="1.5" fill="none"/>
+  <circle cx="16" cy="4" r="1.5" fill="none"/>
+</svg>

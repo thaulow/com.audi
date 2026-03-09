@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Windows open"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "A window was opened"
+  },
+  "insightsTitleFalse": {
+    "en": "All windows closed"
+  },
+  "uiComponent": "sensor",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "alarm_windows_open_true",
+        "title": {
+          "en": "A window opened"
+        }
+      },
+      {
+        "id": "alarm_windows_open_false",
+        "title": {
+          "en": "All windows closed"
+        }
+      }
+    ]
+  }
+}

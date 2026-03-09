@@ -1,0 +1,33 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Doors open"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "A door was opened"
+  },
+  "insightsTitleFalse": {
+    "en": "All doors closed"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/door.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "alarm_doors_open_true",
+        "title": {
+          "en": "A door opened"
+        }
+      },
+      {
+        "id": "alarm_doors_open_false",
+        "title": {
+          "en": "All doors closed"
+        }
+      }
+    ]
+  }
+}

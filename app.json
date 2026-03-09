@@ -1,0 +1,831 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.audi",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Audi Connect"
+  },
+  "description": {
+    "en": "Control and monitor your Audi vehicle from Homey"
+  },
+  "brandColor": "#000000",
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Thomas Thaulow Stöcklin",
+    "email": "thaulow@thaulow.co"
+  },
+  "tags": {
+    "en": [
+      "audi",
+      "car",
+      "vehicle",
+      "ev",
+      "e-tron",
+      "charging",
+      "climate",
+      "lock"
+    ]
+  },
+  "api": {
+    "refreshVehicle": {
+      "method": "PUT",
+      "path": "/vehicle/:vin/refresh"
+    }
+  },
+  "flow": {
+    "conditions": [
+      {
+        "title": {
+          "en": "Fuel level is below..."
+        },
+        "titleFormatted": {
+          "en": "Fuel level is below [[threshold]]%"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          },
+          {
+            "type": "range",
+            "name": "threshold",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "label": "%",
+            "labelDecimals": 0
+          }
+        ],
+        "id": "fuel_below"
+      },
+      {
+        "title": {
+          "en": "Vehicle is charging"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "is_charging"
+      },
+      {
+        "title": {
+          "en": "Climatisation is active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "is_climatisation_active"
+      },
+      {
+        "title": {
+          "en": "A door is open"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "is_door_open"
+      },
+      {
+        "title": {
+          "en": "Vehicle is locked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "is_locked"
+      },
+      {
+        "title": {
+          "en": "A window is open"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "is_window_open"
+      },
+      {
+        "title": {
+          "en": "Battery charge is below..."
+        },
+        "titleFormatted": {
+          "en": "Battery charge is below [[threshold]]%"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          },
+          {
+            "type": "range",
+            "name": "threshold",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "label": "%",
+            "labelDecimals": 0
+          }
+        ],
+        "id": "soc_below"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Lock the vehicle"
+        },
+        "hint": {
+          "en": "Lock the vehicle doors (requires S-PIN)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "lock_vehicle"
+      },
+      {
+        "title": {
+          "en": "Refresh vehicle data"
+        },
+        "hint": {
+          "en": "Ask the vehicle to push fresh data to the cloud. Data will be available after ~30 seconds."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "refresh_vehicle_data"
+      },
+      {
+        "title": {
+          "en": "Set target charge level"
+        },
+        "titleFormatted": {
+          "en": "Set target charge level to [[target_soc]]%"
+        },
+        "hint": {
+          "en": "Set the target state of charge for EV/PHEV vehicles (20-100% in steps of 5)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          },
+          {
+            "type": "range",
+            "name": "target_soc",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "label": "%",
+            "labelDecimals": 0
+          }
+        ],
+        "id": "set_target_soc"
+      },
+      {
+        "title": {
+          "en": "Start charging"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "start_charger"
+      },
+      {
+        "title": {
+          "en": "Start climatisation"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "start_climatisation"
+      },
+      {
+        "title": {
+          "en": "Start auxiliary heater"
+        },
+        "hint": {
+          "en": "Start the auxiliary heater (requires S-PIN)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "start_preheater"
+      },
+      {
+        "title": {
+          "en": "Start window heating"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "start_window_heating"
+      },
+      {
+        "title": {
+          "en": "Stop charging"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "stop_charger"
+      },
+      {
+        "title": {
+          "en": "Stop climatisation"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "stop_climatisation"
+      },
+      {
+        "title": {
+          "en": "Stop auxiliary heater"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "stop_preheater"
+      },
+      {
+        "title": {
+          "en": "Stop window heating"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "stop_window_heating"
+      },
+      {
+        "title": {
+          "en": "Unlock the vehicle"
+        },
+        "hint": {
+          "en": "Unlock the vehicle doors (requires S-PIN)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vehicle"
+          }
+        ],
+        "id": "unlock_vehicle"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Audi Vehicle"
+      },
+      "class": "other",
+      "capabilities": [
+        "locked",
+        "measure_temperature",
+        "measure_mileage",
+        "measure_fuel_level",
+        "measure_range",
+        "measure_oil_level",
+        "measure_soc",
+        "measure_charging_power",
+        "charging_state",
+        "target_soc",
+        "alarm_doors_open",
+        "alarm_windows_open",
+        "alarm_trunk_open",
+        "alarm_hood_open",
+        "climatisation_active",
+        "preheater_active",
+        "window_heating_active",
+        "measure_service_distance",
+        "measure_service_time",
+        "latitude",
+        "longitude"
+      ],
+      "capabilitiesOptions": {
+        "locked": {
+          "title": {
+            "en": "Door lock"
+          }
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Outdoor temperature"
+          }
+        }
+      },
+      "energy": {},
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/vehicle/assets/images/small.png",
+        "large": "/drivers/vehicle/assets/images/large.png",
+        "xlarge": "/drivers/vehicle/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login",
+          "template": "login_credentials",
+          "options": {
+            "title": "Audi Connect",
+            "logo": "../assets/icon.svg",
+            "usernameLabel": {
+              "en": "myAudi email"
+            },
+            "passwordLabel": {
+              "en": "myAudi password"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Account"
+          },
+          "children": [
+            {
+              "id": "username",
+              "type": "text",
+              "label": {
+                "en": "myAudi email"
+              },
+              "value": ""
+            },
+            {
+              "id": "password",
+              "type": "password",
+              "label": {
+                "en": "myAudi password"
+              },
+              "value": ""
+            },
+            {
+              "id": "spin",
+              "type": "password",
+              "label": {
+                "en": "S-PIN (for lock/unlock)"
+              },
+              "value": ""
+            },
+            {
+              "id": "region",
+              "type": "dropdown",
+              "label": {
+                "en": "Region"
+              },
+              "value": "DE",
+              "values": [
+                {
+                  "id": "DE",
+                  "label": {
+                    "en": "Europe"
+                  }
+                },
+                {
+                  "id": "US",
+                  "label": {
+                    "en": "United States"
+                  }
+                },
+                {
+                  "id": "CA",
+                  "label": {
+                    "en": "Canada"
+                  }
+                },
+                {
+                  "id": "CN",
+                  "label": {
+                    "en": "China"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Polling"
+          },
+          "children": [
+            {
+              "id": "poll_interval",
+              "type": "number",
+              "label": {
+                "en": "Update interval (minutes)"
+              },
+              "value": 15,
+              "min": 5,
+              "max": 120
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Vehicle"
+          },
+          "children": [
+            {
+              "id": "vin",
+              "type": "label",
+              "label": {
+                "en": "VIN"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ],
+      "id": "vehicle"
+    }
+  ],
+  "capabilities": {
+    "alarm_doors_open": {
+      "type": "boolean",
+      "title": {
+        "en": "Doors open"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "A door was opened"
+      },
+      "insightsTitleFalse": {
+        "en": "All doors closed"
+      },
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/door.svg"
+    },
+    "alarm_hood_open": {
+      "type": "boolean",
+      "title": {
+        "en": "Hood open"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "alarm_trunk_open": {
+      "type": "boolean",
+      "title": {
+        "en": "Trunk open"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Trunk was opened"
+      },
+      "insightsTitleFalse": {
+        "en": "Trunk closed"
+      },
+      "uiComponent": "sensor"
+    },
+    "alarm_windows_open": {
+      "type": "boolean",
+      "title": {
+        "en": "Windows open"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "A window was opened"
+      },
+      "insightsTitleFalse": {
+        "en": "All windows closed"
+      },
+      "uiComponent": "sensor"
+    },
+    "charging_state": {
+      "type": "string",
+      "title": {
+        "en": "Charging state"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "values": [
+        {
+          "id": "notCharging",
+          "title": {
+            "en": "Not charging"
+          }
+        },
+        {
+          "id": "charging",
+          "title": {
+            "en": "Charging"
+          }
+        },
+        {
+          "id": "chargePurposeReachedAndNotConservationCharging",
+          "title": {
+            "en": "Charge complete"
+          }
+        },
+        {
+          "id": "conserving",
+          "title": {
+            "en": "Conserving"
+          }
+        }
+      ]
+    },
+    "climatisation_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Climatisation"
+      },
+      "getable": true,
+      "setable": true,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Climatisation started"
+      },
+      "insightsTitleFalse": {
+        "en": "Climatisation stopped"
+      },
+      "uiComponent": "toggle"
+    },
+    "latitude": {
+      "type": "number",
+      "title": {
+        "en": "Latitude"
+      },
+      "units": {
+        "en": "°"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 6
+    },
+    "longitude": {
+      "type": "number",
+      "title": {
+        "en": "Longitude"
+      },
+      "units": {
+        "en": "°"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 6
+    },
+    "measure_charging_power": {
+      "type": "number",
+      "title": {
+        "en": "Charging power"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_fuel_level": {
+      "type": "number",
+      "title": {
+        "en": "Fuel level"
+      },
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/capabilities/fuel.svg",
+      "uiComponent": "sensor"
+    },
+    "measure_mileage": {
+      "type": "number",
+      "title": {
+        "en": "Mileage"
+      },
+      "units": {
+        "en": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/capabilities/mileage.svg",
+      "uiComponent": "sensor"
+    },
+    "measure_oil_level": {
+      "type": "number",
+      "title": {
+        "en": "Oil level"
+      },
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_range": {
+      "type": "number",
+      "title": {
+        "en": "Range"
+      },
+      "units": {
+        "en": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/capabilities/range.svg",
+      "uiComponent": "sensor"
+    },
+    "measure_service_distance": {
+      "type": "number",
+      "title": {
+        "en": "Service in"
+      },
+      "units": {
+        "en": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_service_time": {
+      "type": "number",
+      "title": {
+        "en": "Service in"
+      },
+      "units": {
+        "en": "days"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_soc": {
+      "type": "number",
+      "title": {
+        "en": "State of charge"
+      },
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/capabilities/battery.svg",
+      "uiComponent": "battery"
+    },
+    "preheater_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Auxiliary heater"
+      },
+      "getable": true,
+      "setable": true,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Auxiliary heater started"
+      },
+      "insightsTitleFalse": {
+        "en": "Auxiliary heater stopped"
+      },
+      "uiComponent": "toggle"
+    },
+    "target_soc": {
+      "type": "number",
+      "title": {
+        "en": "Target charge level"
+      },
+      "units": {
+        "en": "%"
+      },
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "getable": true,
+      "setable": true,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "window_heating_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Window heating"
+      },
+      "getable": true,
+      "setable": true,
+      "insights": true,
+      "uiComponent": "toggle"
+    }
+  }
+}

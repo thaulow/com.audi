@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Climatisation"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Climatisation started"
+  },
+  "insightsTitleFalse": {
+    "en": "Climatisation stopped"
+  },
+  "uiComponent": "toggle",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "climatisation_active_true",
+        "title": {
+          "en": "Climatisation started"
+        }
+      },
+      {
+        "id": "climatisation_active_false",
+        "title": {
+          "en": "Climatisation stopped"
+        }
+      }
+    ]
+  }
+}

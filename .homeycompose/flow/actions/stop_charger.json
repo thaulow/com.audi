@@ -1,0 +1,12 @@
+{
+  "title": {
+    "en": "Stop charging"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

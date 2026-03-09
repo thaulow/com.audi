@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Battery charge is below..."
+  },
+  "titleFormatted": {
+    "en": "Battery charge is below [[threshold]]%"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    },
+    {
+      "type": "range",
+      "name": "threshold",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "label": "%",
+      "labelDecimals": 0
+    }
+  ]
+}

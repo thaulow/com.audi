@@ -1,0 +1,12 @@
+{
+  "title": {
+    "en": "A door is open"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

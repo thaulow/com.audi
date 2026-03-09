@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Window heating"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": true,
+  "uiComponent": "toggle"
+}

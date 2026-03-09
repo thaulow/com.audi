@@ -1,0 +1,12 @@
+{
+  "title": {
+    "en": "Vehicle is charging"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

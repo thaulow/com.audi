@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Lock the vehicle"
+  },
+  "hint": {
+    "en": "Lock the vehicle doors (requires S-PIN)"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    }
+  ]
+}

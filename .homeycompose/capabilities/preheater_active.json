@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Auxiliary heater"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Auxiliary heater started"
+  },
+  "insightsTitleFalse": {
+    "en": "Auxiliary heater stopped"
+  },
+  "uiComponent": "toggle"
+}

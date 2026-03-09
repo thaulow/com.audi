@@ -1,0 +1,27 @@
+{
+  "title": {
+    "en": "Set target charge level"
+  },
+  "titleFormatted": {
+    "en": "Set target charge level to [[target_soc]]%"
+  },
+  "hint": {
+    "en": "Set the target state of charge for EV/PHEV vehicles (20-100% in steps of 5)"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=vehicle"
+    },
+    {
+      "type": "range",
+      "name": "target_soc",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "label": "%",
+      "labelDecimals": 0
+    }
+  ]
+}

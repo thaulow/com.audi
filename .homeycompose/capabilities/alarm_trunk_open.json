@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Trunk open"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Trunk was opened"
+  },
+  "insightsTitleFalse": {
+    "en": "Trunk closed"
+  },
+  "uiComponent": "sensor"
+}
