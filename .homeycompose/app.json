@@ -27,7 +27,16 @@
     "email": "thaulow@thaulow.co"
   },
   "tags": {
-    "en": ["audi", "car", "vehicle", "ev", "e-tron", "charging", "climate", "lock"]
+    "en": [
+      "audi",
+      "car",
+      "vehicle",
+      "ev",
+      "e-tron",
+      "charging",
+      "climate",
+      "lock"
+    ]
   },
   "api": {
     "refreshVehicle": {
