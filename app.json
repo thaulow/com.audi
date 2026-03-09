@@ -397,6 +397,11 @@
       "connectivity": [
         "cloud"
       ],
+      "images": {
+        "small": "/drivers/vehicle/assets/images/small.png",
+        "large": "/drivers/vehicle/assets/images/large.png",
+        "xlarge": "/drivers/vehicle/assets/images/xlarge.png"
+      },
       "pair": [
         {
           "id": "login",
